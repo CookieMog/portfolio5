@@ -5,6 +5,7 @@ use App\Providers\FortifyServiceProvider;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Fortify;
 
@@ -41,7 +42,8 @@ Route::get('/moderation', function () {
     var_dump('section moderation admin');
 });
 
-
+Route::get('/add-comment/{id}', [PageController::class, 'addComment'])->name('comment');
+Route::post('/store-comment', [CommentController::class, 'storeComment'])->name('storeComment');
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/', [PageController::class, 'adminView'])->name('admin');
     Route::get('/gallery', [ProjectController::class, 'showProject'])->name('gallery');

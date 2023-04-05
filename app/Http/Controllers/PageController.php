@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\projet;
 use App\Models\User;
+use App\Models\commentaire;
 use Illuminate\Http\Request;
 use Laravel\Fortify\Fortify;
 
@@ -35,13 +36,13 @@ class PageController extends Controller
     public function projectView($id)
     {
         $singleProject = Projet::find($id);
-
+        $comments = commentaire::where('projet_id', $id)->get();
         $images = [
             'image_1' => $singleProject->image_1,
             'image_2' => $singleProject->image_2,
             'image_3' => $singleProject->image_3,
         ];
-        return view('projet', compact('singleProject', 'images'));
+        return view('projet', compact('comments', 'singleProject', 'images'));
     }
     public function admin_addProject()
     {
@@ -51,5 +52,10 @@ class PageController extends Controller
     {
         $project = Projet::find($id);
         return view('admin_views.edit_project_form', ['project' => $project]);
+    }
+    public function addComment($id)
+    {
+        $singleProject = Projet::find($id);
+        return view('add_comment_form', ['project' => $singleProject]);
     }
 }

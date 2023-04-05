@@ -50,8 +50,16 @@
                     Technologies utilisée :
                     <br />
                 </div>
-
+                <a href=" {{ route('comment', ['id' => $singleProject->id]) }}">Ajouter un Commentaire
+                </a>
                 <div id="commentbox">
+                    @foreach ($comments as $comment)
+                        <div class="commentaire">
+                            Email: {{ $comment->email }}
+                            <br />
+                            Commentaire: {{ $comment->commentaire }}
+                        </div>
+                    @endforeach
                 </div>
 
             </div>
