@@ -25,7 +25,7 @@
                         <br />
                         Client : {{ $project->customer }}
                         <br />
-                        Description: {{ $project->description }}
+                        Description: {{ Str::limit($project->description, 200) }}
                         <br />
                         Mission : {{ $project->mission }}
                         <br />
@@ -39,7 +39,7 @@
 
                                 <button type="submit">Modifier</button>
                             </form>
-                            <form action="{{ route('delete-project', $project->id) }}" method="POST">
+                            <form action="{{ route('delete-project', $project->id) }}"class="Delete" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit">Supprimer</button>
@@ -53,4 +53,18 @@
         </div>
 
     </div>
+    <script>
+        let deleteButton = document.querySelectorAll('.Delete');
+
+        for (let i = 0; i < deleteButton.length; i++) {
+            deleteButton[i].addEventListener('click', (e) => {
+                if (confirm("Souhaitez-vous réellement supprimer ce projet ?")) {
+                    window.location.href = e.target.firstElementChild.getAttribute('href');
+                } else {
+                    e.preventDefault();
+                }
+            });
+
+        }
+    </script>
 @endsection

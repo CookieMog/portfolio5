@@ -3,6 +3,8 @@
 @section('title', 'Portfolio')
 
 @section('content')
+
+
     <div class="containers">
         <div class="mobilemenubar">
             @include('components.dropdown_menu')
@@ -20,7 +22,7 @@
                         <div class="elements">
                             @foreach ($images as $image)
                                 <div class="element">
-                                    <img src="{{ asset("/storage/images/$image") }}" alt="{{ $project->name }}">
+                                    <img src="{{ asset("/storage/images/$image") }}" alt="{{ $singleProject->name }}">
                                 </div>
                             @endforeach
                         </div>
@@ -36,6 +38,22 @@
                         <i id="stop" class="fa-regular fa-circle-pause fa-3x"></i></button>
 
                 </div>
+
+
+                <div id="ProjectDescription">
+                    Nom du Projet : {{ $singleProject->name }}
+                    <br />
+                    Lien: <a href="{{ $singleProject->url }}">{{ $singleProject->url }}</a>
+                    <br />
+                    Description du projet : {{ $singleProject->description }}
+                    <br />
+                    Technologies utilisée :
+                    <br />
+                </div>
+
+                <div id="commentbox">
+                </div>
+
             </div>
         </div>
     @endsection

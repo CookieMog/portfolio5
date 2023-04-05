@@ -34,13 +34,14 @@ class PageController extends Controller
     }
     public function projectView($id)
     {
-        $project = Projet::find($id);
+        $singleProject = Projet::find($id);
+
         $images = [
-            'image_1' => $project->image_1,
-            'image_2' => $project->image_2,
-            'image_3' => $project->image_3,
+            'image_1' => $singleProject->image_1,
+            'image_2' => $singleProject->image_2,
+            'image_3' => $singleProject->image_3,
         ];
-        return view('projet', compact('project', 'images'));
+        return view('projet', compact('singleProject', 'images'));
     }
     public function admin_addProject()
     {

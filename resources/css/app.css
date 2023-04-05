@@ -246,6 +246,12 @@ a {
         flex-direction: row;
         flex-wrap: wrap;
     }
+    #ProjectDescription {
+        min-width: 55%;
+    }
+    #commentbox {
+        min-width: 45%;
+    }
     .column2 {
         position: relative;
         width: 66%;

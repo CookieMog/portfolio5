@@ -60,9 +60,23 @@
                 </div>
                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                 <div>
-                    <button type="submit">Editer le projet
+                    <button type="submit" class="Edit">Editer le projet
 
                     </button>
                 </div>
             </form>
+            <script>
+                let editButton = document.querySelectorAll('.Edit');
+
+                for (let i = 0; i < deleteButton.length; i++) {
+                    deleteButton[i].addEventListener('click', (e) => {
+                        if (confirm("Souhaitez-vous réellement modifier ce projet ?")) {
+                            window.location.href = e.target.firstElementChild.getAttribute('href');
+                        } else {
+                            e.preventDefault();
+                        }
+                    });
+
+                }
+            </script>
         @endsection
