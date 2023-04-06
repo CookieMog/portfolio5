@@ -26,9 +26,10 @@
 
                 <label for="subject"><strong>Votre Commentaire:</strong></label>
                 <textarea name="comment" id="commentText" rows=5 cols=5></textarea>
-                <button type="submit">Commenter
+                <button type="submit" class="commentButton">Commenter
 
                 </button>
 
             </form>
+
         @endsection

@@ -44,6 +44,17 @@ class PageController extends Controller
         ];
         return view('projet', compact('comments', 'singleProject', 'images'));
     }
+    public function projectViewPublic($id)
+    {
+        $singleProject = Projet::find($id);
+        $comments = commentaire::where('projet_id', $id)->get();
+        $images = [
+            'image_1' => $singleProject->image_1,
+            'image_2' => $singleProject->image_2,
+            'image_3' => $singleProject->image_3,
+        ];
+        return view('projet', compact('comments', 'singleProject', 'images'));
+    }
     public function admin_addProject()
     {
         return view('admin_views.admin_project_form');

@@ -67,7 +67,12 @@ class ProjectController extends Controller
 
         return view('admin_views.admin_gallery', ['projets' => $projects]); // on les passe a la vue
     }
+    public function showProjectPublic()
+    {
+        $projects = Projet::all(); // on récupère les projet en DB
 
+        return view('gallery', ['projets' => $projects]); // on les passe a la vue
+    }
     public function deleteProject($id)
     {
         $project = Projet::find($id);

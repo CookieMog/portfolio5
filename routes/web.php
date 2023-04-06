@@ -41,13 +41,14 @@ Route::get('/projets', function () {
 Route::get('/moderation', function () {
     var_dump('section moderation admin');
 });
-
+Route::get('/gallery', [ProjectController::class, 'showProjectPublic'])->name('public-gallery');
+Route::get('/project/{id}', [PageController::class, 'projectView'])->name('project');
 Route::get('/add-comment/{id}', [PageController::class, 'addComment'])->name('comment');
 Route::post('/store-comment', [CommentController::class, 'storeComment'])->name('storeComment');
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/', [PageController::class, 'adminView'])->name('admin');
     Route::get('/gallery', [ProjectController::class, 'showProject'])->name('gallery');
-    Route::get('/project/{id}', [PageController::class, 'projectView'])->name('project');
+    /*    Route::get('/project/{id}', [PageController::class, 'projectView'])->name('project'); */
     Route::get('/add-project', [PageController::class, 'admin_addProject'])->name('add-project');
     Route::post('/store-project', [ProjectController::class, 'storeProject'])->name('storeProject');
     Route::delete('/projet/{id}', [ProjectController::class, 'deleteProject'])->name('delete-project');
