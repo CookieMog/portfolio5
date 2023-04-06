@@ -42,6 +42,9 @@ class PageController extends Controller
             'image_2' => $singleProject->image_2,
             'image_3' => $singleProject->image_3,
         ];
+
+        // dd($images);
+
         return view('projet', compact('comments', 'singleProject', 'images'));
     }
     public function projectViewPublic($id)

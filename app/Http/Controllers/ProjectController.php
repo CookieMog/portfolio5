@@ -67,6 +67,7 @@ class ProjectController extends Controller
 
         return view('admin_views.admin_gallery', ['projets' => $projects]); // on les passe a la vue
     }
+
     public function showProjectPublic()
     {
         $projects = Projet::all(); // on récupère les projet en DB
@@ -83,8 +84,8 @@ class ProjectController extends Controller
         $imagePaths = [$project->image_1, $project->image_2, $project->image_3];
 
         foreach ($imagePaths as $imagePath) {
-            if (Storage::disk('public')->exists('public/images/' . $imagePath)) {
-                Storage::disk('public')->delete('public/images/' . $imagePath);
+            if (Storage::disk('public')->exists('storage/images/' . $imagePath)) {
+                Storage::disk('public')->delete('storage/images/' . $imagePath);
             }
         }
         $result = Projet::where('id', $id)->delete();
@@ -96,10 +97,6 @@ class ProjectController extends Controller
 
     public function updateProject(Request $request, $id)
     {
-        $project = Projet::find($id);
-        if (!$project) {
-            return redirect()->route('gallery')->with('error', 'Aucun projet trouvé');
-        }
         $validatedData = $request->validate([
             'name' => 'required|string|max:191',
             'image_1' => 'file|image|mimes:jpg,jpeg,png|max:4000|nullable',
@@ -111,28 +108,47 @@ class ProjectController extends Controller
             'mission' => 'required|string|max:191',
         ]);
 
+        $project = Projet::find($id);
+        if (!$project) {
+            return redirect()->route('gallery')->with('error', 'Aucun projet trouvé');
+        }
+
         if ($request->hasFile('image_1')) {
             // On supprime l'ancienne
-            Storage::delete($project->image_1);
+            Storage::disk('public')->delete('storage/images/' . $project->image_1);
+            // Storage::delete($project->image_1);
 
             // On enregistre la nouvelle
-            $project->image_1 = $request->file('image_1')->store('public/images');
+            $filename = time() . '-' . $request->file('image_1')->getClientOriginalName();
+            $path = $request->file('image_1')->storeAs('storage/images/' . $filename);
+
+            $project->image_1 = $path;
         }
 
         if ($request->hasFile('image_2')) {
 
-            Storage::delete($project->image_2);
+            // On supprime l'ancienne
+            Storage::disk('public')->delete('storage/images/' . $project->image_1);
+            // Storage::delete($project->image_1);
 
+            // On enregistre la nouvelle
+            $filename = time() . '-' . $request->file('image_2')->getClientOriginalName();
+            $path = $request->file('image_2')->storeAs('storage/images/' . $filename);
 
-            $project->image_2 = $request->file('image_2')->store('public/images');
+            $project->image_1 = $path;
         }
 
         if ($request->hasFile('image_3')) {
 
-            Storage::delete($project->image_3);
+            // On supprime l'ancienne
+            Storage::disk('public')->delete('storage/images/' . $project->image_1);
+            // Storage::delete($project->image_1);
 
+            // On enregistre la nouvelle
+            $filename = time() . '-' . $request->file('image_3')->getClientOriginalName();
+            $path = $request->file('image_3')->storeAs('storage/images/' . $filename);
 
-            $project->image_3 = $request->file('image_3')->store('public/images');
+            $project->image_1 = $path;
         }
 
         $project->name = $validatedData['name'];

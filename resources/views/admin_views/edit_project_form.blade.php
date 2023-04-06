@@ -27,8 +27,11 @@
                     <input type="text" name="name" required value="{{ $project->name ?? '' }}">
                 </div>
                 <div>
+                    @if (isset($project->image_1))
+                        <img width="100px" src="{{ asset("/storage/images/$project->image_1") }}" alt="">
+                    @endif
                     <label for="image_1">Image 1:</label>
-                    <input type="file" name="image_1" accept="image/*" required value="{{ $project->image_1 ?? '' }}">
+                    <input type="file" name="image_1" accept="image/*">
                 </div>
                 <div>
                     <label for="image_2">Image 2:</label>
