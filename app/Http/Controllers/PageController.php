@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\projet;
+use App\Models\tag;
 use App\Models\User;
 use App\Models\commentaire;
 use Illuminate\Http\Request;
@@ -29,8 +30,10 @@ class PageController extends Controller
     {
         return view('admin_views.dashboard');
     }
-    public function admin_galleryView()
+    public function admin_galleryView(Request $request, $id)
     {
+        $projet = Projet::find($id);
+        $projet->addTags($request->input('tags'));
         return view('admin_views.admin_gallery');
     }
     public function projectView($id)
@@ -60,7 +63,8 @@ class PageController extends Controller
     }
     public function admin_addProject()
     {
-        return view('admin_views.admin_project_form');
+        $tags = Tag::all();
+        return view('admin_views.admin_project_form', ['tags' => $tags]);
     }
     public function admin_editProject($id)
     {

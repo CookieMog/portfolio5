@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+
 
 class projet extends Model
 {
@@ -23,5 +25,14 @@ class projet extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function addTags(array $tagIds)
+    {
+        $this->tags()->attach($tagIds);
+        return $this->tags;
+    }
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'projet_has_tags');
     }
 }

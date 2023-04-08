@@ -50,8 +50,12 @@
                     <input type="text" name="customer" required value="{{ old('customer') ?? '' }}">
                 </div>
                 <div>
-                    <label for="technologies">Technologies:</label> {{-- Ce seront les tags --}}
-                    <input type="text" name="technologies" required value="{{ old('technologies') ?? '' }}">
+                    <label for="tags">Technologies:</label>
+                    <select name="tags[]" required>
+                        @foreach ($tags as $tag)
+                            <option value="{{ $tag->id }}">{{ $tag->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
                 <div>
                     <label for="mission">Mission Réalisée:</label>

@@ -31,7 +31,10 @@
                         <br />
                         Lien : <a href="{{ $project->url }}">{{ $project->url }}</a>
                         <br />
-                        Technologies : {{ $project->technologies }}
+                        Technologies :
+                        @foreach ($project->tags as $tag)
+                            <span class="tag">{{ $tag->name }}</span>
+                        @endforeach
                         <br />
                         <div class="buttons">
                             <form action=" {{ route('edit-project', $project->id) }}" method="GET">

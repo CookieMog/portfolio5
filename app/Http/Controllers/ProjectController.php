@@ -12,7 +12,7 @@ class ProjectController extends Controller
 {
     public function storeProject(Request $request)
     {
-        // dd($request->all());
+        //dd($request->all());
         // Valider les données du formulaire
         $validatedData = $request->validate([
             'name' => 'required|string|max:191',
@@ -23,6 +23,7 @@ class ProjectController extends Controller
             'url' => 'required|url',
             'customer' => 'required|string|max:191',
             'mission' => 'required|string|max:191',
+            'tags' => 'nullable|array',
         ]);
         //dd($validatedData);
 
@@ -54,7 +55,9 @@ class ProjectController extends Controller
         $project->user_id = Auth::user()->id;
         $project->save();
 
-        // if()
+        // tags
+        $tags = $validatedData['tags'];
+        $project->addtags($tags);
 
         return redirect()->route('gallery')->with('success', 'Projet mis en Ligne avec succès.');
 

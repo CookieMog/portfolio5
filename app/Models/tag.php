@@ -13,4 +13,9 @@ class tag extends Model
         'slug',
         'description'
     ];
+
+    public function projets()
+    {
+        return $this->belongsToMany(Projet::class, 'projet_has_tags');
+    }
 }

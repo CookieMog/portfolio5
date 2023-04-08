@@ -310,6 +310,17 @@ a {
         height: 100%;
         object-fit: cover;
     }
+    .project_preview span {
+        border: 2px solid black;
+        width: 25%;
+        border-radius: 10px;
+        padding: 2px;
+        text-align: center;
+        margin-left: 5px;
+        font-weight: bold;
+        color: black;
+        background-color: bisque;
+    }
 
     /*--- Diaporama ---*/
     .carousel {
