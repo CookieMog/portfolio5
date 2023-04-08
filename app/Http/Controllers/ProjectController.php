@@ -84,8 +84,11 @@ class ProjectController extends Controller
         $imagePaths = [$project->image_1, $project->image_2, $project->image_3];
 
         foreach ($imagePaths as $imagePath) {
-            if (Storage::disk('public')->exists('storage/images/' . $imagePath)) {
-                Storage::disk('public')->delete('storage/images/' . $imagePath);
+            if ($imagePath) { // check if path is not empty
+                $filePath = storage_path('app/public/images/' . $imagePath);
+                if (file_exists($filePath)) {
+                    unlink($filePath);
+                }
             }
         }
         $result = Projet::where('id', $id)->delete();

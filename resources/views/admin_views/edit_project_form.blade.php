@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="containers">
+    <div class="admincontainers">
         <div class="mobilemenubar">
             @include('components.dropdown_menu')
         </div>
@@ -34,12 +34,18 @@
                     <input type="file" name="image_1" accept="image/*">
                 </div>
                 <div>
+                    @if (isset($project->image_2))
+                        <img width="100px" src="{{ asset("/storage/images/$project->image_2") }}" alt="">
+                    @endif
                     <label for="image_2">Image 2:</label>
-                    <input type="file" name="image_2" accept="image/*"value="{{ $project->image_2 ?? '' }}">
+                    <input type="file" name="image_2" accept="image/*">
                 </div>
                 <div>
+                    @if (isset($project->image_3))
+                        <img width="100px" src="{{ asset("/storage/images/$project->image_3") }}" alt="">
+                    @endif
                     <label for="image_3">Image 3:</label>
-                    <input type="file" name="image_3" accept="image/*"value="{{ $project->image_3 ?? '' }}">
+                    <input type="file" name="image_3" accept="image/*">
                 </div>
                 <div>
                     <label for="description">Description:</label>

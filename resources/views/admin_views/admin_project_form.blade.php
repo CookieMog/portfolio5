@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <div class="containers">
+    <div class="admincontainers">
         <div class="mobilemenubar">
             @include('components.dropdown_menu')
         </div>
