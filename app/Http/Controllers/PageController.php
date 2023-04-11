@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\projet;
 use App\Models\tag;
+use App\Models\categorie;
 use App\Models\User;
 use App\Models\commentaire;
 use Illuminate\Http\Request;
@@ -32,8 +33,10 @@ class PageController extends Controller
     }
     public function admin_galleryView(Request $request, $id)
     {
+
         $projet = Projet::find($id);
         $projet->addTags($request->input('tags'));
+        $projet->addCategory($request->input('mission'));
         return view('admin_views.admin_gallery');
     }
     public function projectView($id)
@@ -63,13 +66,16 @@ class PageController extends Controller
     }
     public function admin_addProject()
     {
+        $categorie = categorie::all();
         $tags = Tag::all();
-        return view('admin_views.admin_project_form', ['tags' => $tags]);
+        return view('admin_views.admin_project_form', ['tags' => $tags, 'categorie' => $categorie]);
     }
     public function admin_editProject($id)
     {
         $project = Projet::find($id);
-        return view('admin_views.edit_project_form', ['project' => $project]);
+        $categorie = categorie::all();
+        $tags = Tag::all();
+        return view('admin_views.edit_project_form', ['project' => $project, 'tags' => $tags, 'categorie' => $categorie]);
     }
     public function addComment($id)
     {

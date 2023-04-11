@@ -35,4 +35,14 @@ class projet extends Model
     {
         return $this->belongsToMany(Tag::class, 'projet_has_tags');
     }
+
+    public function addCategory(array $categoryIds)
+    {
+        $this->category()->attach($categoryIds);
+        return $this->category;
+    }
+    public function category()
+    {
+        return $this->belongsToMany(Categorie::class, 'projet_has_categories');
+    }
 }

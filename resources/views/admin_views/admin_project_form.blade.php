@@ -50,8 +50,8 @@
                     <input type="text" name="customer" required value="{{ old('customer') ?? '' }}">
                 </div>
                 <div>
-                    <label for="tags">Technologies:</label>
-                    <select name="tags[]" required>
+                    <label for="tags[]">Tags:</label>
+                    <select name="tags[]" class="form-control" multiple>
                         @foreach ($tags as $tag)
                             <option value="{{ $tag->id }}">{{ $tag->name }}</option>
                         @endforeach
@@ -59,7 +59,12 @@
                 </div>
                 <div>
                     <label for="mission">Mission Réalisée:</label>
-                    <input type="text" name="mission" required value="{{ old('mission') ?? '' }}">
+                    <select name="mission" class="form-control" multiple>
+                        @foreach ($categorie as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+
                 </div>
                 <input type="hidden" name="user_id" value="{{ Auth::id() }}">
                 <div>

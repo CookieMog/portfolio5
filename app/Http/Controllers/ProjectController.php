@@ -27,6 +27,9 @@ class ProjectController extends Controller
         ]);
         //dd($validatedData);
 
+        // convert string to array
+        $mission = $validatedData['mission'] ? [$validatedData['mission']] : [];
+
 
         //Enregistrer les image sur notre serveur
 
@@ -58,7 +61,9 @@ class ProjectController extends Controller
         // tags
         $tags = $validatedData['tags'];
         $project->addtags($tags);
+        // categories
 
+        $project->addCategory($mission);
         return redirect()->route('gallery')->with('success', 'Projet mis en Ligne avec succès.');
 
         // redirection avec errors
@@ -105,14 +110,16 @@ class ProjectController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:191',
-            'image_1' => 'file|image|mimes:jpg,jpeg,png|max:4000|nullable',
+            'image_1' => 'required|file|image|mimes:jpg,jpeg,png|max:4000',
             'image_2' => 'file|image|mimes:jpg,jpeg,png|max:4000|nullable',
             'image_3' => 'file|image|mimes:jpg,jpeg,png|max:4000|nullable',
             'description' => 'required|string',
             'url' => 'required|url',
             'customer' => 'required|string|max:191',
             'mission' => 'required|string|max:191',
+            'tags' => 'nullable|array',
         ]);
+        $mission = $validatedData['mission'] ? [$validatedData['mission']] : [];
 
         $project = Projet::find($id);
         if (!$project) {
@@ -164,6 +171,12 @@ class ProjectController extends Controller
         $project->mission = $validatedData['mission'];
         $project->user_id = Auth::user()->id;
         $project->save();
+
+        $tags = $validatedData['tags'];
+        $project->addtags($tags);
+        // categories
+
+        $project->addCategory($mission);
 
         return redirect()->route('gallery')->with('success', 'Le projet a été mis à jour avec succès.');
     }

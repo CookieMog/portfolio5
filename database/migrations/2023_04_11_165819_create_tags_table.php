@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -5,19 +6,21 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Tag;
 
-class AddColumnsToTagsTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
+    public function up(): void
     {
-        // Add new columns to the tags table
-        Schema::table('tags', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
             $table->string('slug');
             $table->text('description');
+            $table->timestamps();
         });
 
         // Insert default values into the tags table
@@ -39,4 +42,4 @@ class AddColumnsToTagsTable extends Migration
             $table->dropColumn(['slug', 'description']);
         });
     }
-}
+};

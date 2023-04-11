@@ -321,6 +321,9 @@ a {
         color: black;
         background-color: bisque;
     }
+    .form-control {
+        display: flex;
+    }
 
     /*--- Diaporama ---*/
     .carousel {
