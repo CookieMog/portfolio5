@@ -38,13 +38,13 @@ class CommentController extends Controller
     {
         $comment = commentaire::find($id);
         if (!$comment) {
-            return redirect()->route('gallery')->with('error', 'Le système a rencontré une erreur');
+            return redirect()->route('moderateComment')->with('error', 'Le système a rencontré une erreur');
         }
 
         $result = commentaire::where('id', $id)->delete();
 
         if ($result) {
-            return redirect()->route('gallery')->with('success', 'Commentaire supprimé');
+            return redirect()->route('moderateComment')->with('success', 'Commentaire supprimé');
         }
     }
 }

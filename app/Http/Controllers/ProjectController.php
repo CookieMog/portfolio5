@@ -110,16 +110,16 @@ class ProjectController extends Controller
     {
         $validatedData = $request->validate([
             'name' => 'required|string|max:191',
-            'image_1' => 'required|file|image|mimes:jpg,jpeg,png|max:4000',
+            'image_1' => 'nullable|file|image|mimes:jpg,jpeg,png|max:4000',
             'image_2' => 'file|image|mimes:jpg,jpeg,png|max:4000|nullable',
             'image_3' => 'file|image|mimes:jpg,jpeg,png|max:4000|nullable',
             'description' => 'required|string',
             'url' => 'required|url',
             'customer' => 'required|string|max:191',
-            'mission' => 'required|string|max:191',
+            'mission' => 'nullable|string|max:191',
             'tags' => 'nullable|array',
         ]);
-        $mission = $validatedData['mission'] ? [$validatedData['mission']] : [];
+        $mission = isset($validatedData['mission']) && !empty($validatedData['mission']) ? [$validatedData['mission']] : [];
 
         $project = Projet::find($id);
         if (!$project) {
@@ -168,7 +168,7 @@ class ProjectController extends Controller
         $project->description = $validatedData['description'];
         $project->url = $validatedData['url'];
         $project->customer = $validatedData['customer'];
-        $project->mission = $validatedData['mission'];
+        // $project->mission = $validatedData['mission'];
         $project->user_id = Auth::user()->id;
         $project->save();
 

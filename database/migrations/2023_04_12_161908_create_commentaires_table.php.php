@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('commentaires', function (Blueprint $table) {
             $table->id('id');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->string('commentaire', 191);
             $table->timestamps();
             $table->foreignId('projet_id')
