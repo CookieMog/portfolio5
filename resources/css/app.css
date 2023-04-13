@@ -255,7 +255,6 @@ a {
         flex-direction: column;
         justify-content: space-between;
         position: relative;
-        left: 50%;
     }
     .commentaire {
         border: 2px solid black;
@@ -290,6 +289,7 @@ a {
     }
     .project_preview {
         margin-top: 10px;
+        max-width: 32%;
     }
     .project_preview > a {
         width: 350px;
@@ -320,6 +320,39 @@ a {
         font-weight: bold;
         color: black;
         background-color: bisque;
+    }
+    .project_preview > .Mission span {
+        border: 2px solid black;
+        width: 25%;
+        border-radius: 10px;
+        padding: 2px;
+        text-align: center;
+        margin-left: 5px;
+        font-weight: bold;
+        color: black;
+        background-color: #c4e2ff;
+    }
+    #ProjectDescription span {
+        border: 2px solid black;
+        width: 25%;
+        border-radius: 10px;
+        padding: 2px;
+        text-align: center;
+        margin-left: 5px;
+        font-weight: bold;
+        color: black;
+        background-color: bisque;
+    }
+    #ProjectDescription > .Mission span {
+        border: 2px solid black;
+        width: 25%;
+        border-radius: 10px;
+        padding: 2px;
+        text-align: center;
+        margin-left: 5px;
+        font-weight: bold;
+        color: black;
+        background-color: #c4e2ff;
     }
     .form-control {
         display: flex;
@@ -458,7 +491,7 @@ a {
     .NavMenu input {
         text-transform: uppercase;
         display: inline-block;
-        min-width: 200px;
+        min-width: 250px;
         text-align: center;
         margin: 0.9em;
         padding: 1.6em;
@@ -565,6 +598,74 @@ a {
         cursor: grabbing;
         width: 100%;
         border-radius: 15px;
+    }
+    .ModerationsectionHeader ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 0;
+        padding: 5px;
+        list-style: none;
+    }
+    .ModerationsectionHeader li {
+        border: 2px solid black;
+        border-radius: 15px;
+        width: 33%;
+        text-align: center;
+        padding: 10px;
+        background: #cfcfcf;
+        position: relative;
+    }
+    .ModerateCommentList h1 {
+        text-align: center;
+        font-size: x-large;
+    }
+    .ModerateCommentList h2,
+    h3 {
+        font-size: medium;
+    }
+    .commentBox {
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        background: linear-gradient(to bottom right, white, grey);
+        padding: 5px;
+        border: solid rgb(255, 252, 252) 5px;
+        border-style: inset;
+    }
+    .commentButtons {
+        margin: auto;
+    }
+    .commentButtons a {
+        border: 2px solid;
+        background-color: #2e7ef7;
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        color: #ebe7e7;
+        text-decoration: none;
+        display: inline-block;
+    }
+    .ping {
+        display: none;
+        position: absolute;
+        top: -10px;
+        right: 0;
+        padding: 2px 5px;
+        background-color: red;
+        color: white;
+        border-radius: 50%;
+    }
+
+    .StatBody h1 {
+        text-align: center;
+    }
+    .StatBody ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
     }
 
     @media only screen and (min-width: 1024px) and (max-width: 1440px) {

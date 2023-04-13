@@ -1,3 +1,4 @@
+@@ -1,32 +0,0 @@
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -14,11 +15,13 @@ return new class extends Migration
         Schema::create('commentaires', function (Blueprint $table) {
             $table->id('id');
             $table->string('email')->unique();
+            $table->string('commentaire', 191);
             $table->timestamps();
             $table->foreignId('projet_id')
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->boolean('status');
         });
     }
 

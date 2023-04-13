@@ -27,11 +27,21 @@
                         <br />
                         Description: {{ Str::limit($project->description, 200) }}
                         <br />
-                        Mission : {{ $project->mission }}
+                        <div class="Mission">
+                            Mission :
+                            @foreach ($project->category as $category)
+                                <span class="tag">{{ $category->name }}</span>
+                            @endforeach
+                        </div>
                         <br />
                         Lien : <a href="{{ $project->url }}">{{ $project->url }}</a>
                         <br />
-                        Technologies : {{ $project->technologies }}
+                        <div class="technologies">
+                            Technologies :
+                            @foreach ($project->tags as $tag)
+                                <span class="tag">{{ $tag->name }}</span>
+                            @endforeach
+                        </div>
                         <br />
                         <div class="buttons">
                             <a href="{{ route('project', ['id' => $project->id]) }}">Voir Plus</a>

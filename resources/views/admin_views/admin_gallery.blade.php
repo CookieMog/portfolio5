@@ -25,12 +25,16 @@
                         <br />
                         Client : {{ $project->customer }}
                         <br />
-                        Description: {{ Str::limit($project->description, 200) }}
+                        <div class="TextDescription">
+                            Description: {{ Str::limit($project->description, 200) }}
+                        </div>
                         <br />
-                        Mission :
-                        @foreach ($project->category as $category)
-                            <span class="tag">{{ $category->name }}</span>
-                        @endforeach
+                        <div class="Mission">
+                            Mission :
+                            @foreach ($project->category as $category)
+                                <span class="tag">{{ $category->name }}</span>
+                            @endforeach
+                        </div>
                         <br />
                         Lien : <a href="{{ $project->url }}">{{ $project->url }}</a>
                         <br />

@@ -54,4 +54,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::delete('/projet/{id}', [ProjectController::class, 'deleteProject'])->name('delete-project');
     Route::get('/edit-project/{id}', [PageController::class, 'admin_editProject'])->name('edit-project');
     Route::put('/update-project/{id}', [ProjectController::class, 'updateProject'])->name('update-project');
+    Route::get('/moderate', [PageController::class, 'moderationView'])->name('moderate');
+    Route::get('/moderate-comments', [PageController::class, 'moderateCommentView'])->name('moderateComment');
+    Route::get('/moderate-comments/{id}', [CommentController::class, 'validateComment'])->name('validate');
+    Route::get('/delete-comments/{id}', [CommentController::class, 'deleteComment'])->name('delete-comment');
 });

@@ -25,6 +25,7 @@ return new class extends Migration
         categorie::create(['name' => 'Back-End', 'slug' => 'BackEnd', 'description' => 'Handling Server Side interractions']);
         categorie::create(['name' => 'Front-End', 'slug' => 'FrontEnd', 'description' => 'Handling Javascript and CSS/HTML']);
         categorie::create(['name' => 'Full-Stack', 'slug' => 'FullStack', 'description' => 'Handling both Front-End and Back-end']);
+        categorie::create(['name' => 'Projet-Etudiant', 'slug' => 'Projet Etudiant', 'description' => 'School project']);
     }
 
     /**

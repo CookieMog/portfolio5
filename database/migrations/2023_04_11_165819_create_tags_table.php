@@ -28,6 +28,7 @@ return new class extends Migration
         Tag::create(['name' => 'PHP', 'slug' => 'php', 'description' => 'A server-side scripting language for web development']);
         Tag::create(['name' => 'HTML', 'slug' => 'html', 'description' => 'A markup language for creating web pages']);
         Tag::create(['name' => 'CSS', 'slug' => 'css', 'description' => 'A stylesheet language for styling web pages']);
+        Tag::create(['name' => 'Wordpress', 'slug' => 'Wordpress', 'description' => 'A website to make pre-built pages through plugins']);
     }
 
     /**

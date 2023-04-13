@@ -39,10 +39,11 @@ class PageController extends Controller
         $projet->addCategory($request->input('mission'));
         return view('admin_views.admin_gallery');
     }
-    public function projectView($id)
+    public function projectView(Request $request, $id)
     {
         $singleProject = Projet::find($id);
-        $comments = commentaire::where('projet_id', $id)->get();
+
+        $comments = commentaire::where('projet_id', $id)->where('status', 1)->get();
         $images = [
             'image_1' => $singleProject->image_1,
             'image_2' => $singleProject->image_2,
@@ -81,5 +82,15 @@ class PageController extends Controller
     {
         $singleProject = Projet::find($id);
         return view('add_comment_form', ['project' => $singleProject]);
+    }
+    public function moderationView()
+    {
+        $comments = commentaire::where('status', 0)->get();;
+        return view('admin_views.moderation_dashboard', ['comment' => $comments]);
+    }
+    public function moderateCommentView()
+    {
+        $comments = commentaire::where('status', 0)->get();;
+        return view('admin_views.comment_moderation', ['comment' => $comments]);
     }
 }
