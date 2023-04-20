@@ -43,15 +43,20 @@
                 <div id="ProjectDescription">
                     Nom du Projet : {{ $singleProject->name }}
                     <br />
+                    <br />
                     Lien: <a href="{{ $singleProject->url }}">{{ $singleProject->url }}</a>
+                    <br />
                     <br />
                     <div class="Mission">
                         Mission :
                         @foreach ($singleProject->category as $category)
                             <span class="tag">{{ $category->name }}</span>
                         @endforeach
+                        <br />
+                        <br />
                     </div>
                     Description du projet : {{ $singleProject->description }}
+                    <br />
                     <br />
                     <div class="technologies">
                         Technologies :
@@ -59,6 +64,7 @@
                             <span class="tag">{{ $tag->name }}</span>
                         @endforeach
                     </div>
+                    <br />
                     <br />
                 </div>
                 <a href=" {{ route('comment', ['id' => $singleProject->id]) }}">Ajouter un Commentaire

@@ -48,7 +48,6 @@ Route::post('/store-comment', [CommentController::class, 'storeComment'])->name(
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/', [PageController::class, 'adminView'])->name('admin');
     Route::get('/gallery', [ProjectController::class, 'showProject'])->name('gallery');
-    /*    Route::get('/project/{id}', [PageController::class, 'projectView'])->name('project'); */
     Route::get('/add-project', [PageController::class, 'admin_addProject'])->name('add-project');
     Route::post('/store-project', [ProjectController::class, 'storeProject'])->name('storeProject');
     Route::delete('/projet/{id}', [ProjectController::class, 'deleteProject'])->name('delete-project');
@@ -58,4 +57,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/moderate-comments', [PageController::class, 'moderateCommentView'])->name('moderateComment');
     Route::get('/moderate-comments/{id}', [CommentController::class, 'validateComment'])->name('validate');
     Route::get('/delete-comments/{id}', [CommentController::class, 'deleteComment'])->name('delete-comment');
+    Route::delete('/projects/{id}/tags', [ProjectController::class, 'deleteTags'])->name('delete-tags');
 });

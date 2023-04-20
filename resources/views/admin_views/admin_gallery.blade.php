@@ -18,7 +18,7 @@
             @foreach ($projets as $project)
                 <div class="project_preview">
                     <a href="{{ route('project', ['id' => $project->id]) }}">
-                        <img src="{{ asset("/storage/images/$project->image_1") }}" alt="{{ $project->name }}">
+                        <img src="{{ asset("storage/images/$project->image_1") }}" alt="{{ $project->name }}">
                     </a>
                     <div class="desc">
                         Nom du projet: {{ $project->name }}

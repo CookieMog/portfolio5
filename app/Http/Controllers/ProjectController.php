@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\projet;
+use App\Models\tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\http\UploadedFile;
@@ -128,12 +129,12 @@ class ProjectController extends Controller
 
         if ($request->hasFile('image_1')) {
             // On supprime l'ancienne
-            Storage::disk('public')->delete('storage/images/' . $project->image_1);
+            Storage::disk('public')->delete('images/' . $project->image_1);
             // Storage::delete($project->image_1);
 
             // On enregistre la nouvelle
             $filename = time() . '-' . $request->file('image_1')->getClientOriginalName();
-            $path = $request->file('image_1')->storeAs('storage/images/' . $filename);
+            $path = $request->file('image_1')->storeAs('public/images/' . $filename);
 
             $project->image_1 = $path;
         }
@@ -141,34 +142,33 @@ class ProjectController extends Controller
         if ($request->hasFile('image_2')) {
 
             // On supprime l'ancienne
-            Storage::disk('public')->delete('storage/images/' . $project->image_1);
+            Storage::disk('public')->delete('images/' . $project->image_2);
             // Storage::delete($project->image_1);
 
             // On enregistre la nouvelle
             $filename = time() . '-' . $request->file('image_2')->getClientOriginalName();
-            $path = $request->file('image_2')->storeAs('storage/images/' . $filename);
+            $path = $request->file('image_2')->storeAs('public/images/' . $filename);
 
-            $project->image_1 = $path;
+            $project->image_2 = $path;
         }
 
         if ($request->hasFile('image_3')) {
 
             // On supprime l'ancienne
-            Storage::disk('public')->delete('storage/images/' . $project->image_1);
+            Storage::disk('public')->delete('images/' . $project->image_3);
             // Storage::delete($project->image_1);
 
             // On enregistre la nouvelle
             $filename = time() . '-' . $request->file('image_3')->getClientOriginalName();
-            $path = $request->file('image_3')->storeAs('storage/images/' . $filename);
+            $path = $request->file('image_3')->storeAs('public/images/' . $filename);
 
-            $project->image_1 = $path;
+            $project->image_3 = $path;
         }
 
         $project->name = $validatedData['name'];
         $project->description = $validatedData['description'];
         $project->url = $validatedData['url'];
         $project->customer = $validatedData['customer'];
-        // $project->mission = $validatedData['mission'];
         $project->user_id = Auth::user()->id;
         $project->save();
 
@@ -179,5 +179,32 @@ class ProjectController extends Controller
         $project->addCategory($mission);
 
         return redirect()->route('gallery')->with('success', 'Le projet a été mis à jour avec succès.');
+    }
+
+    public function updateTags(Request $request, Projet $project)
+    {
+        $tags = json_decode($request->input('tags'));
+
+        // First, remove all tags from the project
+        $project->tags()->detach();
+
+        // Then, attach the selected tags to the project
+        foreach ($tags as $tagId) {
+            $tag = Tag::find($tagId);
+            if ($tag) {
+                $project->tags()->attach($tag);
+            }
+        }
+
+        return response()->json(['message' => 'Tags mis à jour avec succès'], 200);
+    }
+
+    public function deleteTags(Request $request, Projet $project)
+
+    {
+        dd($request->input('tags'), $project);
+        $tags = json_decode($request->input('tags'));
+        $project->tags()->detach();
+        return response()->json(['message' => 'Tags mis à jour avec succès'], 200);
     }
 }
