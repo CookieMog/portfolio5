@@ -125,10 +125,14 @@
                     let csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
                     let csrfTokenElement = document.querySelector('meta[name="csrf-token"]');
                     let deleteRequest = new XMLHttpRequest();
-                    deleteRequest.open('DELETE', '{{ route('delete-tags', ['id' => $project]) }}', true);
+                    deleteRequest.open('DELETE', '{{ route('delete-tags', ['id' => $project->id]) }}', true);
 
                     deleteRequest.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                     deleteRequest.setRequestHeader('X-CSRF-Token', csrfTokenElement.getAttribute('content'));
+
+                    // deleteRequest.send(JSON.stringify({
+                    //     tags: tagIds
+                    // }));
 
                     /*  console.log('Delete button clicked');
                      console.log('New tag:', newTag);
@@ -136,6 +140,7 @@
                      console.log('CSRF token:', csrfToken); */
                     deleteRequest.onreadystatechange = function() {
                         if (deleteRequest.readyState === XMLHttpRequest.DONE) {
+                            console.log(deleteRequest.responseText)
                             if (deleteRequest.status === 200) {
                                 tagIds.forEach(function(tagId) {
                                     let optionToRemove = document.querySelector('#existingTags option[value="' +
@@ -148,6 +153,7 @@
                         }
                     };
                     deleteRequest.send('tags=' + JSON.stringify(tagIds));
+
                 });
             </script>
         @endsection

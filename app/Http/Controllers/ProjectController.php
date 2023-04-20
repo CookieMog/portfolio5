@@ -136,7 +136,7 @@ class ProjectController extends Controller
             $filename = time() . '-' . $request->file('image_1')->getClientOriginalName();
             $path = $request->file('image_1')->storeAs('public/images/' . $filename);
 
-            $project->image_1 = $path;
+            $project->image_1 = $filename;
         }
 
         if ($request->hasFile('image_2')) {
@@ -149,7 +149,7 @@ class ProjectController extends Controller
             $filename = time() . '-' . $request->file('image_2')->getClientOriginalName();
             $path = $request->file('image_2')->storeAs('public/images/' . $filename);
 
-            $project->image_2 = $path;
+            $project->image_2 = $filename;
         }
 
         if ($request->hasFile('image_3')) {
@@ -162,7 +162,7 @@ class ProjectController extends Controller
             $filename = time() . '-' . $request->file('image_3')->getClientOriginalName();
             $path = $request->file('image_3')->storeAs('public/images/' . $filename);
 
-            $project->image_3 = $path;
+            $project->image_3 = $filename;
         }
 
         $project->name = $validatedData['name'];
@@ -199,12 +199,18 @@ class ProjectController extends Controller
         return response()->json(['message' => 'Tags mis à jour avec succès'], 200);
     }
 
-    public function deleteTags(Request $request, Projet $project)
+    public function deleteTags(Request $request, Projet $id)
 
     {
-        dd($request->input('tags'), $project);
-        $tags = json_decode($request->input('tags'));
-        $project->tags()->detach();
-        return response()->json(['message' => 'Tags mis à jour avec succès'], 200);
+        try {
+            // dd($request->input('tags'), $project);
+            $test = $request->input('tags');
+            $tags = json_decode($request->input('tags'));
+            $id->tags()->detach($tags);
+
+            return response()->json(['message' => "Tags mis à jour avec succès +  $test  + $id"], 200);
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Erreor'], 500);
+        }
     }
 }
