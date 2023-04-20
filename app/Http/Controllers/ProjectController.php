@@ -94,7 +94,7 @@ class ProjectController extends Controller
 
         foreach ($imagePaths as $imagePath) {
             if ($imagePath) { // check if path is not empty
-                $filePath = storage_path('app/public/images/' . $imagePath);
+                $filePath = public_path('storage/images/' . $imagePath);
                 if (file_exists($filePath)) {
                     unlink($filePath);
                 }
@@ -212,5 +212,17 @@ class ProjectController extends Controller
         } catch (\Exception $e) {
             return response()->json(['message' => 'Erreor'], 500);
         }
+    }
+
+
+
+    public function search(Request $request)
+    {
+        $searchKey = $request->input('searchBar');
+        $projects = Projet::whereHas('tags', function ($query) use ($searchKey) {
+            $query->where('name', 'like', '%' . $searchKey . '%');
+        })->get();
+
+        return view('gallery', ['projets' => $projects, 'searchTerm' => $searchKey]);
     }
 }

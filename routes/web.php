@@ -45,6 +45,7 @@ Route::get('/gallery', [ProjectController::class, 'showProjectPublic'])->name('p
 Route::get('/project/{id}', [PageController::class, 'projectView'])->name('project');
 Route::get('/add-comment/{id}', [PageController::class, 'addComment'])->name('comment');
 Route::post('/store-comment', [CommentController::class, 'storeComment'])->name('storeComment');
+Route::post('/recherche', [ProjectController::class, 'search'])->name('search');
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/', [PageController::class, 'adminView'])->name('admin');
     Route::get('/gallery', [ProjectController::class, 'showProject'])->name('gallery');
