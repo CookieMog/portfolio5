@@ -223,6 +223,6 @@ class ProjectController extends Controller
             $query->where('name', 'like', '%' . $searchKey . '%');
         })->get();
 
-        return view('gallery', ['projets' => $projects, 'searchTerm' => $searchKey]);
+        return view('search', ['projets' => $projects, 'searchTerm' => $searchKey]);
     }
 }

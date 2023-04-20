@@ -14,7 +14,9 @@
 
         <div class="admin_column2">
             @include('components.messages')
-            @include('components.searchbar')
+            <div class="searchArea">
+                @include('components.searchbar')
+            </div>
             <div id="projectList">
                 @foreach ($projets as $project)
                     <div class="project_preview">

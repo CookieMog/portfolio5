@@ -289,11 +289,26 @@ a {
         margin: 5px;
         display: flex;
         justify-content: space-around;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
+    }
+    .searchArea {
+        display: flex;
+        margin: auto;
+    }
+    .searchArea button {
+        padding: 10px;
     }
     .project_preview {
         margin-top: 10px;
+    }
+    #projectList {
+        display: flex;
+        justify-content: space-around;
+    }
+    .project_list {
+        display: flex;
+        justify-content: space-around;
     }
     .project_preview > a {
         width: 350px;
