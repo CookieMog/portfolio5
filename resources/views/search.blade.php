@@ -7,7 +7,7 @@
         @include('components.messages')
 
 
-        <h1>résultats pour: "{{ $searchTerm }}"</h1>
+        <h1 id="searchInfo">résultats pour: "{{ $searchTerm }}"</h1>
 
         @if ($projets->isEmpty())
             <p>No results found.</p>

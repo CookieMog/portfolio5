@@ -306,6 +306,9 @@ a {
         display: flex;
         justify-content: space-around;
     }
+    #searchInfo {
+        text-align: center;
+    }
     .project_list {
         display: flex;
         justify-content: space-around;
