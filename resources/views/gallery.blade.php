@@ -72,8 +72,9 @@
                     if (searchRequest.readyState === XMLHttpRequest.DONE) {
                         if (searchRequest.status === 200) {
                             let projectList = document.getElementById('projectList');
-                            if (searchKey !== "") {}
-                            projectList.innerHTML = searchRequest.responseText;
+                            if (searchKey !== "") {
+                                projectList.innerHTML = searchRequest.responseText;
+                            }
                         } else {
                             projectList.innerHTML = '';
                         }

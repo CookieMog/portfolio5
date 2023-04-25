@@ -74,12 +74,16 @@ class ProjectController extends Controller
     {
         $projects = Projet::all(); // on récupère les projet en DB
 
+
+
         return view('admin_views.admin_gallery', ['projets' => $projects]); // on les passe a la vue
     }
 
     public function showProjectPublic()
     {
         $projects = Projet::all(); // on récupère les projet en DB
+
+
 
         return view('gallery', ['projets' => $projects]); // on les passe a la vue
     }
@@ -175,7 +179,7 @@ class ProjectController extends Controller
         $tags = $validatedData['tags'];
         $project->addtags($tags);
         // categories
-
+        $project->category()->detach();
         $project->addCategory($mission);
 
         return redirect()->route('gallery')->with('success', 'Le projet a été mis à jour avec succès.');
