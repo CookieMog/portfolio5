@@ -2,6 +2,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background: rgb(0 0 0 / 90%);
 }
 footer {
     margin-top: auto;
@@ -13,12 +14,34 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(354deg, #f3420d, #7c6666, transparent);
+    background: linear-gradient(179deg, #fff, rgb(0 0 0 / 90%), transparent);
+}
+
+.fa-brands:hover {
+    color: #f3420d;
+}
+.fa-facebook {
+    color: #1877f2;
+}
+.fa-twitter {
+    color: #1da1f2;
+}
+.fa-linkedin {
+    color: #0a66c2;
 }
 main {
     display: flex;
     flex-direction: row;
 }
+
+p {
+    color: white;
+}
+
+h1 {
+    color: white;
+}
+
 .projectForm {
     display: flex;
     flex-direction: column;
@@ -113,7 +136,7 @@ button[type="submit"]:hover {
     width: 100%;
     border: solid 2px black;
     margin-bottom: 5px;
-    background: linear-gradient(354deg, #f3420d, #7c6666, transparent);
+    background: linear-gradient(0deg, #fff, rgb(0 0 0 / 90%), transparent);
     overflow: hidden;
 }
 .Photo {
@@ -121,7 +144,9 @@ button[type="submit"]:hover {
     position: relative;
     height: 15vh;
     width: 50%;
-    border: solid 2px black;
+    border: solid 8px #f3420d;
+    border-style: inset;
+    box-shadow: -1px -1px 10px 3px rgb(0 0 0 / 90%);
 }
 .mobilemenubar {
     display: flex;
@@ -265,14 +290,14 @@ a {
     }
     .column2 {
         position: relative;
-        width: 66%;
-        left: 3%;
+        width: 70%;
+
         height: 100%;
         display: flex;
-        margin-right: -5px;
+
         flex-direction: column;
-        margin: auto;
-        margin-top: 0;
+
+        margin-top: 15px;
     }
     .column1 {
         position: relative;
@@ -280,7 +305,6 @@ a {
         height: 100%;
         display: flex;
         flex-direction: column;
-        border: solid 2px red;
         margin-top: 10px;
     }
     .admin_column2 {
@@ -313,6 +337,7 @@ a {
         display: flex;
         justify-content: space-around;
     }
+
     .project_preview > a {
         width: 350px;
         height: 250px;
@@ -517,7 +542,6 @@ a {
         box-shadow: -1px 5px 5px 1px rgb(0 0 0 / 90%);
     }
     .NavMenu {
-        background-color: #b4afb5;
         display: flex;
         justify-content: space-evenly;
         flex-direction: column;
@@ -540,15 +564,19 @@ a {
         font-size: 1.05rem;
         box-shadow: -1px 5px 5px 1px rgb(0 0 0 / 90%);
     }
-
+    .Options {
+        display: flex;
+        flex-direction: column;
+    }
     .NavMenu a {
         text-transform: uppercase;
         display: inline-block;
-        min-width: 200px;
+        min-width: 215px;
+        max-width: 75%;
         text-align: center;
         margin: 0.9em;
         padding: 1.6em;
-        border-radius: 5px 30px 30px 5px;
+        border-radius: 25px 5px 25px 5px;
         background-color: #333;
         color: #fff;
         text-decoration: none;
@@ -556,12 +584,14 @@ a {
         will-change: transform;
         font-size: 1.05rem;
         box-shadow: -1px 5px 5px 1px rgb(0 0 0 / 90%);
+        border: 2px solid white;
     }
     .NavMenu a:hover {
         color: #f3420d;
         box-shadow: -1px -1px 10px 3px rgb(0 0 0 / 90%) inset;
         transform: scale(1);
         transition-duration: 0.6s;
+        border-color: #f3420d;
     }
     .NavMenu input:hover {
         background-color: #333;
@@ -614,6 +644,10 @@ a {
     #socials > a {
         padding: 70px;
         padding-left: 10px;
+        color: white;
+    }
+    #socials > a:hover {
+        color: #f3420d;
     }
     .mobilemenubar {
         display: none;
