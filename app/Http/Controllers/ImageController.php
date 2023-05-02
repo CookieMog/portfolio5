@@ -28,4 +28,13 @@ class ImageController extends Controller
         return back()->with('success', 'Image uploaded Successfully!')
             ->with('image', $imageName);
     }
+
+    public function storeDashboardImage(Request $request)
+    {
+        $filename = time() . '-' . $request->file('image')->getClientOriginalName();
+        $request->file('image')->storeAs('public/images', $filename);
+
+        // pass the filename to the view
+        return view('admin_views.dashboard', ['filename' => $filename]);
+    }
 }

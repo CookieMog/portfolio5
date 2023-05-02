@@ -1,11 +1,5 @@
 let nIntervalID;
 import { diapoClass } from "/resources/js/diapo.js";
-//Lancement Diapo
-// var images = [
-//     "{{ asset('images/step1.jpg') }}",
-//     "{{ asset('images/step2.jpg') }}",
-//     "{{ asset('images/step3.jpg') }}",
-// ];
 
 let images = document.querySelectorAll(".elements .element img");
 
