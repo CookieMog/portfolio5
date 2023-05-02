@@ -18,9 +18,9 @@
             <div class="sectionHeader"> Aperçu de la page d'Accueil</div>
             <div class="Introduction">
                 <div class="Photo">
-                    <img src="{{ asset('images/' . Session::get('image')) }}" alt="AlexisPortrait">
+                    <img src="" alt="AlexisPortrait">
 
-                    <form method="POST" action="{{ route('image.store') }}" enctype="multipart/form-data">
+                    <form method="POST" action="" enctype="multipart/form-data">
                         @csrf
                         <input type="file" class="form-control" name="image" />
 

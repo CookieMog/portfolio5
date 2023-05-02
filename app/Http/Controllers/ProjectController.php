@@ -229,4 +229,17 @@ class ProjectController extends Controller
 
         return view('search', ['projets' => $projects, 'searchTerm' => $searchKey]);
     }
+
+    public function storeDashboardImage(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+
+        $image = $request->file('image');
+        $filename = time() . '-' . $image->getClientOriginalName();
+
+        $image->storeAs('public/images', $filename);
+        return view('admin_views.dashboard', ['filename' => $filename]);
+    }
 }

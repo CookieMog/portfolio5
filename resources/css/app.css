@@ -77,9 +77,10 @@ input[type="file"] {
     padding: 10px 10px;
 }
 button[type="submit"] {
-    background-color: #3498db;
+    background-color: #333;
     color: #fff;
-    border: none;
+    text-decoration: none;
+    border: 2px solid white;
     border-radius: 5px;
     padding: 10px 20px;
     font-size: 16px;
@@ -87,13 +88,19 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #2980b9;
+    color: #f3420d;
+    box-shadow: -1px -1px 10px 3px rgb(0 0 0 / 90%) inset;
+    transform: scale(1);
+    transition-duration: 0.6s;
+    border-color: #f3420d;
 }
 
 .form_content_auth {
     border: 2px solid black;
+    border-color: #f3420d;
     border-radius: 15px;
     padding: 100px 50px 100px 50px;
+    color: white;
 }
 
 .sectionHeader {
@@ -139,7 +146,13 @@ button[type="submit"]:hover {
     background: linear-gradient(0deg, #fff, rgb(0 0 0 / 90%), transparent);
     overflow: hidden;
 }
+.banner-image {
+    transition: all 0.5s ease-in-out;
+}
 .Photo {
+    max-width: 320px;
+    max-height: 400px;
+
     float: right;
     position: relative;
     height: 15vh;
@@ -148,6 +161,7 @@ button[type="submit"]:hover {
     border-style: inset;
     box-shadow: -1px -1px 10px 3px rgb(0 0 0 / 90%);
 }
+
 .mobilemenubar {
     display: flex;
     justify-content: center;
@@ -291,7 +305,7 @@ a {
     .column2 {
         position: relative;
         width: 70%;
-
+        color: white;
         height: 100%;
         display: flex;
 
@@ -341,7 +355,8 @@ a {
     .project_preview > a {
         width: 350px;
         height: 250px;
-        border: solid;
+        border: solid #f3420d;
+        border-bottom: none;
         display: block;
         border-radius: 30px 30px 0px 0px;
         overflow: hidden;
@@ -350,7 +365,10 @@ a {
         display: flex;
         justify-content: center;
         flex-direction: column;
-        border: 2px solid black;
+        border: 2px solid #f3420d;
+        color: white;
+        border-top: none;
+        padding: 10px;
     }
     .project_preview > a > img {
         width: 100%;
@@ -378,6 +396,12 @@ a {
         font-weight: bold;
         color: black;
         background-color: #c4e2ff;
+    }
+    .desc > a {
+        color: #f3420d;
+    }
+    .desc > a:hover {
+        color: #f7f5f4;
     }
     #ProjectDescription span {
         border: 2px solid black;
@@ -604,12 +628,16 @@ a {
         color: #fff;
         font-weight: bold;
     }
+    .ModerationsectionHeader a:hover {
+        color: #f3420d;
+        font-weight: bold;
+    }
     .ModerationsectionHeader li:hover {
-        background-color: #dec4a2;
         color: #f3420d;
         box-shadow: -1px -1px 10px 3px rgb(0 0 0 / 90%) inset;
         transform: scale(1);
         transition-duration: 0.6s;
+        border-color: #f3420d;
     }
     .NavMenuHeader {
         display: flex;
@@ -659,15 +687,25 @@ a {
         width: min-content;
         right: -6%;
     }
-    img[alt~="imageBanniere1"] {
+    #banner1 {
         clip-path: polygon(0 0, 100% 0%, 75% 100%, 0% 100%);
-        border-right: solid 2px black;
     }
-    img[alt~="imageBanniere2"] {
+    #banner2 {
         clip-path: polygon(25% 0%, 100% 0%, 76% 100%, 0% 100%);
     }
-    img[alt~="imageBanniere3"] {
+    #banner3 {
         clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+    .image1-expanded {
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+    }
+
+    .image2-expanded {
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+    }
+
+    .image3-expanded {
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
     }
 
     .Formulaire {
@@ -721,7 +759,7 @@ a {
         list-style: none;
     }
     .ModerationsectionHeader li {
-        border: 2px solid black;
+        border: 2px solid white;
         border-radius: 15px;
         width: 33%;
         text-align: center;
