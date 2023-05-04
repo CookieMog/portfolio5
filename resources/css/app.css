@@ -139,15 +139,21 @@ button[type="submit"]:hover {
 #banner {
     display: flex;
     flex-direction: row;
-    height: 30vh;
+    height: 400px;
     width: 100%;
     border: solid 2px black;
     margin-bottom: 5px;
     background: linear-gradient(0deg, #fff, rgb(0 0 0 / 90%), transparent);
     overflow: hidden;
 }
+.banner-image-wrapper {
+    width: 100%;
+}
 .banner-image {
     transition: all 0.5s ease-in-out;
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
 }
 .Photo {
     max-width: 320px;
@@ -411,12 +417,15 @@ a {
         border: 2px solid black;
         width: 25%;
         border-radius: 10px;
-        padding: 2px;
+        padding: 5px;
         text-align: center;
         margin-left: 5px;
         font-weight: bold;
         color: black;
         background-color: #c4e2ff;
+    }
+    .Mission {
+        padding-top: 7px;
     }
     .desc > a {
         color: #f3420d;
@@ -735,17 +744,17 @@ a {
         clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
     }
     .image1-expanded {
-        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%) !important;
         background-size: cover;
     }
 
     .image2-expanded {
-        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%) !important;
         background-size: cover;
     }
 
     .image3-expanded {
-        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%);
+        clip-path: polygon(0 0, 100% 0%, 100% 100%, 0% 100%) !important;
         background-size: cover;
     }
 

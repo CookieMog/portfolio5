@@ -9,11 +9,12 @@ function expandImage(index) {
     for (let i = 0; i < images.length; i++) {
         if (i !== index) {
             images[i].style.opacity = 0;
+            images[i].closest("div").style.display = "none";
         }
     }
 
-    // Adjust banner height to match expanded image
-    banner.style.height = `${images[index].clientHeight}px`;
+    /* // Adjust banner height to match expanded image
+    banner.style.height = `${images[index].clientHeight}px`; */
 }
 
 function resetBanner() {
@@ -21,6 +22,7 @@ function resetBanner() {
     for (let i = 0; i < images.length; i++) {
         images[i].classList.remove(`image${i + 1}-expanded`);
         images[i].style.opacity = 1;
+        images[i].closest("div").style.display = "block";
     }
 
     // Reset banner height
