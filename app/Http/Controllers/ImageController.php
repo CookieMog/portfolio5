@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Models\image;
 
 class ImageController extends Controller
 {
@@ -31,10 +33,33 @@ class ImageController extends Controller
 
     public function storeDashboardImage(Request $request)
     {
-        $filename = time() . '-' . $request->file('image')->getClientOriginalName();
-        $request->file('image')->storeAs('public/images', $filename);
+        $validatedData = $request->validate([
+            'image' => 'nullable|file|image|mimes:jpg,jpeg,png|max:4000',
+        ]);
 
-        // pass the filename to the view
-        return view('admin_views.dashboard', ['filename' => $filename]);
+        $image = null;
+        $uploadedImage = $request->file('image');
+
+        if ($uploadedImage) {
+            $filename = time() . '-' . $uploadedImage->getClientOriginalName();
+            $path = $uploadedImage->storeAs('public/images', $filename);
+
+            $image = new image();
+            $image->image = $filename;
+            $image->save();
+        }
+        if ($request->hasFile('image') && $image) {
+            // On supprime l'ancienne
+            Storage::disk('public')->delete('images/' . $image->image);
+
+            // On enregistre la nouvelle
+            $filename = time() . '-' . $request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->storeAs('public/images/' . $filename);
+
+            $image->image = $filename;
+            $image->save();
+        }
+
+        return redirect()->route('admin')->with('success', 'Image uploaded successfully!');
     }
 }

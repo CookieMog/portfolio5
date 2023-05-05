@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\projet;
+use App\Models\image;
 use App\Models\tag;
 use App\Models\categorie;
 use App\Models\User;
@@ -29,7 +30,8 @@ class PageController extends Controller
     }
     public function adminView()
     {
-        return view('admin_views.dashboard');
+        $image = Image::latest()->first();
+        return view('admin_views.dashboard', compact('image'));
     }
     public function admin_galleryView(Request $request, $id)
     {

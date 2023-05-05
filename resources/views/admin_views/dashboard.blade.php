@@ -18,7 +18,8 @@
             <div class="sectionHeader"> Aperçu de la page d'Accueil</div>
             <div class="Introduction">
                 <div class="Photo">
-                    <img src="{{-- {{ asset('storage/images/' . $filename) }} --}}" alt="Portrait">
+
+                    <img src="{{ asset('storage/images/' . $image->image) }}" alt="Portrait">
 
                     <form method="POST" action="{{ route('dashboard-image') }}" enctype="multipart/form-data">
                         @csrf
