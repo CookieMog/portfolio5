@@ -39,7 +39,7 @@ class projet extends Model
     public function addCategory(array $categoryIds)
     {
         $this->category()->attach($categoryIds);
-        return $this->category;
+        return $this->mission;
     }
     public function category()
     {

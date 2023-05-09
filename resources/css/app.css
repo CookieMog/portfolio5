@@ -49,6 +49,7 @@ h1 {
     margin-top: 20px;
     border: solid 2px black;
     border-radius: 15px;
+    color: white;
 }
 form > div {
     text-align: center;
@@ -274,15 +275,198 @@ a {
     .Photo {
         right: 7%;
     }
+    .mobilemenubar {
+        height: 4vh;
+    }
+    .nav_menu ul {
+        position: relative;
+        z-index: 100;
+    }
+    .searchArea {
+        margin-top: 15px;
+    }
+    .admin_column2 > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        color: white;
+        padding: 0.4em;
+        border-radius: 30px 30px 30px 30px;
+        background-color: #2e7ef7;
+        width: 30%;
+        text-align: center;
+        margin-bottom: 10px;
+        box-shadow: -1px 5px 5px 1px rgb(0 0 0 / 90%);
+    }
+    .project_preview {
+        max-width: 300px;
+        max-height: 300px;
+        border: 2px #f3420d solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: white;
+        margin: auto;
+        margin-bottom: 60px;
+    }
+    .TextDescription {
+        display: none;
+    }
+
+    .project_preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .desc {
+        color: white;
+    }
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        position: relative;
+    }
+    #socials {
+        position: relative;
+        bottom: -10%;
+    }
+    .diaporama {
+        width: 100%;
+        justify-content: unset;
+    }
+    .element > img {
+        max-width: 100%;
+        height: auto;
+    }
+    .btngauche {
+        position: absolute;
+        bottom: 10%;
+        left: 5%;
+    }
+
+    .btndroite {
+        position: absolute;
+        bottom: 10%;
+        right: 5%;
+    }
+
+    .play {
+        position: absolute;
+        bottom: 5%;
+        left: 45%;
+    }
+
+    .pause {
+        position: absolute;
+        bottom: 5%;
+        right: 45%;
+    }
+
+    .btngauche i,
+    .btndroite i,
+    .play i,
+    .pause i {
+        font-size: 2rem;
+    }
+    #ProjectDescription {
+        font-size: 1.5rem;
+        line-height: 1.8;
+        padding: 1rem;
+    }
+
+    .commentaire {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        padding: 1rem;
+    }
 }
 @media only screen and (min-width: 425px) and (max-width: 767px) {
     .Photo {
         right: 12%;
     }
+    .nav_menu ul {
+        position: relative;
+        z-index: 100;
+    }
+    .diaporama {
+        width: 100%;
+        justify-content: unset;
+    }
 }
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .Photo {
         right: 1%;
+    }
+
+    .project_preview {
+        max-width: 300px;
+        max-height: 300px;
+        border: 2px #f3420d solid;
+        display: flex;
+        color: white;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: auto;
+        margin-bottom: 60px;
+    }
+
+    .project_preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .nav_menu ul {
+        position: relative;
+        z-index: 100;
+    }
+    .mobilemenubar {
+        height: 4vh;
+    }
+    .nav_menu ul {
+        position: relative;
+        z-index: 100;
+    }
+    .searchArea {
+        margin-top: 15px;
+    }
+    .admin_column2 > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        color: white;
+        padding: 0.4em;
+        border-radius: 30px 30px 30px 30px;
+        background-color: #2e7ef7;
+        width: 30%;
+        text-align: center;
+        margin-bottom: 10px;
+        box-shadow: -1px 5px 5px 1px rgb(0 0 0 / 90%);
+    }
+
+    .TextDescription {
+        display: none;
+    }
+
+    .project_preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .desc {
+        color: white;
+    }
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        position: relative;
+    }
+    #socials {
+        position: relative;
+        bottom: -10%;
     }
 }
 
@@ -633,6 +817,10 @@ a {
         font-size: 1.05rem;
         box-shadow: -1px 5px 5px 1px rgb(0 0 0 / 90%);
         border: 2px solid white;
+    }
+    .nav_menu ul {
+        position: relative;
+        z-index: 100;
     }
     .Options {
         display: flex;

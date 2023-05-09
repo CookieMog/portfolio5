@@ -6,7 +6,7 @@
 
     <div class="containers">
         <div class="mobilemenubar">
-            @include('components.dropdown_menu')
+            @include('components.admin_dropdown_menu')
         </div>
         <div class="column1">
             @include('components.admin_menu')
@@ -19,7 +19,7 @@
             <div class="Introduction">
                 <div class="Photo">
 
-                    <img src="{{ asset('storage/images/' . $image->image) }}" alt="Portrait">
+                    <img src="{{-- {{ asset('storage/images/' . $image->image) }} --}}" alt="Portrait">
 
                     <form method="POST" action="{{ route('dashboard-image') }}" enctype="multipart/form-data">
                         @csrf

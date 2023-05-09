@@ -6,7 +6,7 @@
 
     <div class="containers">
         <div class="mobilemenubar">
-            @include('components.dropdown_menu')
+            @include('components.admin_dropdown_menu')
         </div>
         <div class="column1">
             @include('components.admin_menu')
