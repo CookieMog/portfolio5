@@ -38,47 +38,48 @@
                         <i id="stop" class="fa-regular fa-circle-pause fa-3x"></i></button>
 
                 </div>
+            </div>
 
-
-                <div id="ProjectDescription">
-                    Nom du Projet : {{ $singleProject->name }}
-                    <br />
-                    <br />
-                    Lien: <a href="{{ $singleProject->url }}">{{ $singleProject->url }}</a>
-                    <br />
-                    <br />
-                    <div class="Mission">
-                        Mission :
-                        @foreach ($singleProject->category as $category)
-                            <span class="tag">{{ $category->name }}</span>
-                        @endforeach
-                        <br />
-                        <br />
-                    </div>
-                    Description du projet : {{ $singleProject->description }}
-                    <br />
-                    <br />
-                    <div class="technologies">
-                        Technologies :
-                        @foreach ($singleProject->tags as $tag)
-                            <span class="tag">{{ $tag->name }}</span>
-                        @endforeach
-                    </div>
+            <div id="ProjectDescription">
+                Nom du Projet : {{ $singleProject->name }}
+                <br />
+                <br />
+                Lien: <a href="{{ $singleProject->url }}">{{ $singleProject->url }}</a>
+                <br />
+                <br />
+                <div class="Mission">
+                    Mission :
+                    @foreach ($singleProject->category as $category)
+                        <span class="tag">{{ $category->name }}</span>
+                    @endforeach
                     <br />
                     <br />
                 </div>
-                <a href=" {{ route('comment', ['id' => $singleProject->id]) }}">Ajouter un Commentaire
-                </a>
-                <div id="commentbox">
-                    @foreach ($comments as $comment)
-                        <div class="commentaire">
-                            Email: {{ $comment->email }}
-                            <br />
-                            Commentaire: {{ $comment->commentaire }}
-                        </div>
+                Description du projet : {{ $singleProject->description }}
+                <br />
+                <br />
+                <div class="technologies">
+                    Technologies :
+                    @foreach ($singleProject->tags as $tag)
+                        <span class="tag">{{ $tag->name }}</span>
                     @endforeach
                 </div>
-
+                <br />
+                <br />
             </div>
+            <a href=" {{ route('comment', ['id' => $singleProject->id]) }}" class="addComment">Ajouter un Commentaire
+            </a>
+
+            <div id="commentbox">
+                @foreach ($comments as $comment)
+                    <div class="commentaire">
+                        Email: {{ $comment->email }}
+                        <br />
+                        Commentaire: {{ $comment->commentaire }}
+                    </div>
+                @endforeach
+            </div>
+
+
         </div>
     @endsection
