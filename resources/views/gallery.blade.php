@@ -28,7 +28,9 @@
                             <br />
                             Client : {{ $project->customer }}
                             <br />
-                            Description: {{ Str::limit($project->description, 200) }}
+                            <div class="TextDescription">
+                                Description: {{ Str::limit($project->description, 200) }}
+                            </div>
                             <br />
                             <div class="Mission">
                                 Mission :
