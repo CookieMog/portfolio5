@@ -41,6 +41,7 @@
                             <br />
                             Lien : <a href="{{ $project->url }}">{{ $project->url }}</a>
                             <br />
+                            <br />
                             <div class="technologies">
                                 Technologies :
                                 @foreach ($project->tags as $tag)

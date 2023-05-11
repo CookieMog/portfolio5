@@ -19,7 +19,12 @@
             <div class="Introduction">
                 <div class="Photo">
 
-                    <img src="{{-- {{ asset('storage/images/' . $image->image) }} --}}" alt="Portrait">
+                    @if (isset($image) && !empty($image))
+                        <img src="{{ asset('storage/images/' . $image->image) }} " alt="Portrait">
+                    @endif
+
+                    {{-- <img src="{{ isset($image) && !empty($image) ? asset('storage/images/' . $image->image) : '' }} "
+                        alt="Portrait"> --}}
 
                     <form method="POST" action="{{ route('dashboard-image') }}" enctype="multipart/form-data">
                         @csrf

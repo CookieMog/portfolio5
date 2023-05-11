@@ -31,6 +31,9 @@ class PageController extends Controller
     public function adminView()
     {
         $image = Image::latest()->first();
+
+        // dd($image);
+
         return view('admin_views.dashboard', compact('image'));
     }
     public function admin_galleryView(Request $request, $id)
