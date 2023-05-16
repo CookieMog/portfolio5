@@ -810,6 +810,23 @@ a {
         flex-direction: row;
         flex-wrap: wrap;
     }
+    .ContactForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        border: 2px solid #f3420d;
+        margin: auto;
+        margin-bottom: 25px;
+        height: 45vh;
+    }
+    .contactTitle {
+        text-align: center;
+    }
+    .contactMail {
+        display: flex;
+        flex-direction: column;
+    }
     .btn-sm {
         position: absolute;
         top: 35%;

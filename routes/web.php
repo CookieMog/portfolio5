@@ -46,6 +46,8 @@ Route::get('/project/{id}', [PageController::class, 'projectView'])->name('proje
 Route::get('/add-comment/{id}', [PageController::class, 'addComment'])->name('comment');
 Route::post('/store-comment', [CommentController::class, 'storeComment'])->name('storeComment');
 Route::post('/recherche', [ProjectController::class, 'search'])->name('search');
+Route::get('/contact', [PageController::class, 'contactView'])->name('contact');
+Route::post('contact-mail', [PageController::class, 'sendContactMail'])->name('sendMail');
 Route::post('/dashboard-image', [ImageController::class, 'storeDashboardImage'])->name('dashboard-image');
 Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function () {
     Route::get('/', [PageController::class, 'adminView'])->name('admin');

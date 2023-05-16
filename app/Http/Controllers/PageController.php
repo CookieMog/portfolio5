@@ -9,6 +9,7 @@ use App\Models\categorie;
 use App\Models\User;
 use App\Models\commentaire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Laravel\Fortify\Fortify;
 
 class PageController extends Controller
@@ -43,6 +44,10 @@ class PageController extends Controller
         $projet->addTags($request->input('tags'));
         $projet->addCategory($request->input('mission'));
         return view('admin_views.admin_gallery');
+    }
+    public function contactView()
+    {
+        return view('contact_us');
     }
     public function projectView(Request $request, $id)
     {
@@ -97,5 +102,19 @@ class PageController extends Controller
     {
         $comments = commentaire::where('status', 0)->get();;
         return view('admin_views.comment_moderation', ['comment' => $comments]);
+    }
+    public function sendContactMail(Request $request)
+    {
+        $email = $request->input('email');
+        $subject = $request->input('subject');
+        $message = $request->input('message');
+
+        Mail::raw($message, function ($mail) use ($email, $subject) {
+            $mail->from($email)
+                ->to('your-email@example.com')
+                ->subject($subject);
+        });
+
+        return redirect()->back()->with('success', 'Email sent successfully!');
     }
 }
