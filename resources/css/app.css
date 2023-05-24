@@ -270,6 +270,263 @@ a {
     .dropdown_element {
         z-index: 100;
     }
+    .ContactForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        border: 2px solid #f3420d;
+        margin: auto;
+        margin-bottom: 25px;
+        height: 45vh;
+    }
+    .contactTitle {
+        text-align: center;
+    }
+    .contactMail {
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media only screen and (min-width: 320px) and (max-width: 375px) {
+    .Photo {
+        right: 7%;
+    }
+    .mobilemenubar {
+        height: 4vh;
+    }
+    .nav_menu ul {
+        position: relative;
+        z-index: 100;
+    }
+    .searchArea {
+        margin-top: 15px;
+    }
+    .admin_column2 > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        color: white;
+        padding: 0.4em;
+        border-radius: 30px 30px 30px 30px;
+        background-color: #2e7ef7;
+        width: 30%;
+        text-align: center;
+        margin-bottom: 10px;
+        box-shadow: -1px 5px 5px 1px rgb(0 0 0 / 90%);
+    }
+    .project_preview {
+        max-width: 300px;
+        max-height: 300px;
+        border: 2px #f3420d solid;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: white;
+        margin: auto;
+        margin-bottom: 60px;
+    }
+    .TextDescription {
+        display: none;
+    }
+
+    .project_preview img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .desc {
+        color: white;
+    }
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        position: relative;
+        margin-top: 20px;
+    }
+
+    .buttons > a {
+        margin: auto;
+        color: white;
+        padding: 0.4em;
+        border-radius: 30px 30px 30px 30px;
+        background-color: #333;
+        width: 30%;
+        text-align: center;
+        margin-bottom: 10px;
+        border: 2px solid white;
+        box-shadow: -1px 5px 5px 1px rgb(0 0 0 / 90%);
+    }
+    .buttons > a:hover {
+        color: #f3420d;
+        box-shadow: -1px -1px 10px 3px rgb(0 0 0 / 90%) inset;
+        transform: scale(1);
+        transition-duration: 0.6s;
+        border-color: #f3420d;
+    }
+    #socials {
+        position: relative;
+        bottom: -10%;
+    }
+    .diaporama {
+        width: 100%;
+        justify-content: unset;
+    }
+
+    .element > img {
+        max-width: 100%;
+
+        height: auto;
+    }
+    .elements {
+        display: flex;
+        overflow: hidden;
+    }
+    .element {
+        display: contents;
+    }
+    .btngauche {
+        position: absolute;
+        bottom: 65%;
+        left: 5%;
+    }
+
+    .btndroite {
+        position: absolute;
+        bottom: 65%;
+        right: 5%;
+    }
+
+    .play {
+        position: absolute;
+        bottom: 63%;
+        left: 37%;
+    }
+
+    .pause {
+        position: absolute;
+        bottom: 63%;
+        right: 37%;
+    }
+
+    .btngauche i,
+    .btndroite i,
+    .play i,
+    .pause i {
+        font-size: 2rem;
+    }
+    #ProjectDescription {
+        font-size: 1.5rem;
+        line-height: 1.8;
+        padding: 1rem;
+        color: white;
+    }
+    #ProjectDescription span {
+        border: 2px solid black;
+        width: 25%;
+        border-radius: 10px;
+        padding: 2px;
+        text-align: center;
+        margin-left: 5px;
+        font-weight: bold;
+        color: black;
+        background-color: bisque;
+    }
+    .commentaire {
+        font-size: 1.2rem;
+        line-height: 1.5;
+        padding: 1rem;
+    }
+    .comment {
+        position: relative;
+        width: 70%;
+        color: white;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        margin-top: 15px;
+    }
+    .addComment {
+        margin: auto;
+        color: white;
+        padding: 0.4em;
+        border-radius: 30px 30px 30px 30px;
+        background-color: #333;
+        width: 30%;
+        text-align: center;
+        margin-bottom: 20px;
+        border: 2px solid white;
+        box-shadow: -1px 5px 5px 1px rgb(0 0 0 / 90%);
+        bottom: 5%;
+        left: 30%;
+        position: absolute;
+    }
+    .addComment > a:hover {
+        color: #f3420d;
+        box-shadow: -1px -1px 10px 3px rgb(0 0 0 / 90%) inset;
+        transform: scale(1);
+        transition-duration: 0.6s;
+        border-color: #f3420d;
+    }
+    #commentbox {
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        background: #333;
+        border-radius: 15px;
+        padding: 5px;
+        border: solid rgb(255, 252, 252) 5px;
+        border-style: inset;
+        color: white;
+    }
+
+    .ModerationsectionHeader ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        margin: 0;
+        padding: 5px;
+        list-style: none;
+    }
+    .ModerationsectionHeader li {
+        border: 2px solid white;
+        border-radius: 15px;
+        width: 33%;
+        text-align: center;
+        padding: 10px;
+        background: #333;
+        position: relative;
+    }
+    .commentBox {
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        background: #333;
+        border-radius: 15px;
+        padding: 5px;
+        border: solid rgb(255, 252, 252) 5px;
+        border-style: inset;
+    }
+
+    .commentButtons {
+        margin: auto;
+    }
+    .commentButtons a {
+        border: 2px solid;
+        background-color: #2e7ef7;
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        color: #ebe7e7;
+        text-decoration: none;
+        display: inline-block;
+    }
 }
 @media only screen and (min-width: 375px) and (max-width: 425px) {
     .Photo {
@@ -360,31 +617,38 @@ a {
 
     .element > img {
         max-width: 100%;
-        overflow: hidden;
+
         height: auto;
+    }
+    .elements {
+        display: flex;
+        overflow: hidden;
+    }
+    .element {
+        display: contents;
     }
     .btngauche {
         position: absolute;
-        bottom: 10%;
+        bottom: 65%;
         left: 5%;
     }
 
     .btndroite {
         position: absolute;
-        bottom: 10%;
+        bottom: 65%;
         right: 5%;
     }
 
     .play {
         position: absolute;
-        bottom: 5%;
-        left: 45%;
+        bottom: 62%;
+        left: 35%;
     }
 
     .pause {
         position: absolute;
-        bottom: 5%;
-        right: 45%;
+        bottom: 62%;
+        right: 35%;
     }
 
     .btngauche i,
@@ -399,7 +663,17 @@ a {
         padding: 1rem;
         color: white;
     }
-
+    #ProjectDescription span {
+        border: 2px solid black;
+        width: 25%;
+        border-radius: 10px;
+        padding: 2px;
+        text-align: center;
+        margin-left: 5px;
+        font-weight: bold;
+        color: black;
+        background-color: bisque;
+    }
     .commentaire {
         font-size: 1.2rem;
         line-height: 1.5;
@@ -414,6 +688,42 @@ a {
         flex-direction: column;
         margin-top: 15px;
     }
+    .addComment {
+        margin: auto;
+        color: white;
+        padding: 0.4em;
+        border-radius: 30px 30px 30px 30px;
+        background-color: #333;
+        width: 30%;
+        text-align: center;
+        margin-bottom: 20px;
+        border: 2px solid white;
+        box-shadow: -1px 5px 5px 1px rgb(0 0 0 / 90%);
+        bottom: 13%;
+        left: 30%;
+        position: absolute;
+    }
+    .addComment > a:hover {
+        color: #f3420d;
+        box-shadow: -1px -1px 10px 3px rgb(0 0 0 / 90%) inset;
+        transform: scale(1);
+        transition-duration: 0.6s;
+        border-color: #f3420d;
+    }
+    #commentbox {
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        background: #333;
+        border-radius: 15px;
+        padding: 5px;
+        border: solid rgb(255, 252, 252) 5px;
+        border-style: inset;
+        color: white;
+    }
+
     .ModerationsectionHeader ul {
         display: flex;
         flex-direction: row;
@@ -477,6 +787,23 @@ a {
     .element {
         display: contents;
     }
+    .ContactForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        border: 2px solid #f3420d;
+        margin: auto;
+        margin-bottom: 25px;
+        height: 45vh;
+    }
+    .contactTitle {
+        text-align: center;
+    }
+    .contactMail {
+        display: flex;
+        flex-direction: column;
+    }
     .buttons {
         margin-top: 20px;
     }
@@ -538,6 +865,20 @@ a {
         padding: 5px;
         border: solid rgb(255, 252, 252) 5px;
         border-style: inset;
+        color: white;
+    }
+    #commentBox {
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        background: #333;
+        border-radius: 15px;
+        padding: 5px;
+        border: solid rgb(255, 252, 252) 5px;
+        border-style: inset;
+        color: white;
     }
 
     .commentButtons {
@@ -557,6 +898,23 @@ a {
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .Photo {
         right: 1%;
+    }
+    .ContactForm {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        border: 2px solid #f3420d;
+        margin: auto;
+        margin-bottom: 25px;
+        height: 45vh;
+    }
+    .contactTitle {
+        text-align: center;
+    }
+    .contactMail {
+        display: flex;
+        flex-direction: column;
     }
     .dropdown_element a {
         text-align: center;
@@ -712,13 +1070,13 @@ a {
 
     .play {
         position: absolute;
-        bottom: 45%;
+        bottom: 52%;
         left: 35%;
     }
 
     .pause {
         position: absolute;
-        bottom: 45%;
+        bottom: 52%;
         right: 35%;
     }
 

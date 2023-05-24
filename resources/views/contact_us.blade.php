@@ -14,7 +14,7 @@
 
         <div class="admin_column2">
             @include('components.messages')
-            <h1 class="contactTitle">Contact Me</h1>
+            <h1 class="contactTitle">Contactez-Moi</h1>
             <form method="POST" action="{{ route('sendMail') }}" class="ContactForm">
                 @csrf
                 <div class="contactMail">
@@ -22,7 +22,7 @@
                     <input type="email" id="email" name="email" required>
                 </div>
                 <div>
-                    <label for="subject">Subject:</label>
+                    <label for="subject">Sujet:</label>
                     <input type="text" id="subject" name="subject" required>
                 </div>
                 <div>
@@ -30,7 +30,7 @@
                     <textarea id="message" name="message" rows="4" cols="50" required></textarea>
                 </div>
                 <div>
-                    <button type="submit">Send Mail</button>
+                    <button type="submit">Envoyer</button>
                 </div>
             </form>
         </div>

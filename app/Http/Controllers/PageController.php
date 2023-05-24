@@ -109,11 +109,17 @@ class PageController extends Controller
         $subject = $request->input('subject');
         $message = $request->input('message');
 
-        Mail::raw($message, function ($mail) use ($email, $subject) {
-            $mail->from($email)
-                ->to('your-email@example.com')
-                ->subject($subject);
-        });
+
+        try {
+            Mail::raw($message, function ($mail) use ($email, $subject) {
+                $mail->from($email)
+                    ->to('alexis.poillot@gmail.com')
+                    ->subject($subject);
+            }); //code...
+        } catch (\Exception $e) {
+            dd('erreur');
+        }
+
 
         return redirect()->back()->with('success', 'Email sent successfully!');
     }

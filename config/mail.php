@@ -37,7 +37,7 @@ return [
         'smtp' => [
             'transport' => 'smtp',
             'host' => env('MAIL_HOST', 'localhost'),
-            'port' => env('MAIL_PORT', 1025),
+            'port' => env('MAIL_PORT', 2525),
             'encryption' => env('MAIL_ENCRYPTION', 'null'),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
