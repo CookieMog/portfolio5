@@ -25,35 +25,35 @@
                         </a>
                         <div class="desc">
                             Nom du projet: {{ $project->name }}
-                            <br />
+                            <br>
                             Client : {{ $project->customer }}
-                            <br />
+                            <br>
                             <div class="TextDescription">
                                 Description: {{ Str::limit($project->description, 200) }}
                             </div>
-                            <br />
+                            <br>
                             <div class="Mission">
                                 Mission :
                                 @foreach ($project->category as $category)
                                     <span class="tag">{{ $category->name }}</span>
                                 @endforeach
                             </div>
-                            <br />
+                            <br>
                             Lien : <a href="{{ $project->url }}">{{ $project->url }}</a>
-                            <br />
-                            <br />
+                            <br>
+                            <br>
                             <div class="technologies">
                                 Technologies :
                                 @foreach ($project->tags as $tag)
                                     <span class="tag">{{ $tag->name }}</span>
                                 @endforeach
                             </div>
-                            <br />
+                            <br>
                             <div class="buttons">
                                 <a href="{{ route('project', ['id' => $project->id]) }}">Voir Plus</a>
-                                </form>
+
                             </div>
-                            </form>
+
 
                         </div>
                     </div>

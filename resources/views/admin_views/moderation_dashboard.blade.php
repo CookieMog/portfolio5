@@ -39,9 +39,7 @@
 
     </div>
 
-    </div>
-    </div>
-    </div>
+
     <script>
         let CommentsToValidate = {{ count($comment) }};
         let ping = document.getElementById('ping');
