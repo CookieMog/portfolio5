@@ -8,7 +8,8 @@ export class diapoClass {
         this.ArrowRight = document.getElementById(idArrowRight);
         this.PauseButton = document.getElementById("stop");
         this.StartButton = document.getElementById("start");
-        this.start();
+        this.addEvents();
+        this.autoPlay();
     }
 
     autoPlay() {
@@ -36,6 +37,7 @@ export class diapoClass {
             this.autoPlay();
         });
     }
+
     slideLeft() {
         if (this.position <= 0) {
             this.position = this.images.length - 1;
@@ -45,6 +47,7 @@ export class diapoClass {
 
         this.imgElem.src = this.images[this.position];
     }
+
     slideRight() {
         if (this.position >= this.images.length - 1) {
             this.position = 0;
@@ -54,9 +57,8 @@ export class diapoClass {
 
         this.imgElem.src = this.images[this.position];
     }
+
     start() {
         this.imgElem.src = this.images[this.position];
-        this.addEvents();
-        this.autoPlay();
     }
 }

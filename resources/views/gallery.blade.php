@@ -9,7 +9,7 @@
             @include('components.dropdown_menu')
         </div>
         <div class="column1">
-            @include('components.admin_menu')
+            @include('components.nav_menu')
         </div>
 
         <div class="admin_column2">

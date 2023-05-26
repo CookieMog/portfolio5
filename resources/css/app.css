@@ -16,7 +16,20 @@ footer {
     align-items: center;
     background: linear-gradient(179deg, #fff, rgb(0 0 0 / 90%), transparent);
 }
-
+.nav_menu {
+    display: flex;
+    align-items: center;
+}
+.commentForm {
+    margin: auto;
+    /* justify-content: center; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+a:visited {
+    color: #f3420d;
+}
 .fa-brands:hover {
     color: #f3420d;
 }
@@ -146,6 +159,9 @@ button[type="submit"]:hover {
     margin-bottom: 5px;
     background: linear-gradient(0deg, #fff, rgb(0 0 0 / 90%), transparent);
     overflow: hidden;
+}
+#commentText {
+    width: 350px;
 }
 .banner-image-wrapper {
     width: 100%;
@@ -287,6 +303,13 @@ a {
         display: flex;
         flex-direction: column;
     }
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        position: relative;
+        margin-top: 0px;
+    }
 }
 @media only screen and (min-width: 320px) and (max-width: 375px) {
     .Photo {
@@ -344,7 +367,7 @@ a {
         flex-direction: row;
         justify-content: space-around;
         position: relative;
-        margin-top: 20px;
+        margin-top: 0px;
     }
 
     .buttons > a {
@@ -584,7 +607,7 @@ a {
         flex-direction: row;
         justify-content: space-around;
         position: relative;
-        margin-top: 20px;
+        margin-top: 0px;
     }
 
     .buttons > a {
@@ -805,7 +828,7 @@ a {
         flex-direction: column;
     }
     .buttons {
-        margin-top: 20px;
+        margin-top: 0px;
     }
 
     .buttons > a {
@@ -1018,7 +1041,7 @@ a {
         flex-direction: row;
         justify-content: space-around;
         position: relative;
-        margin-top: 20px;
+        margin-top: 0px;
     }
 
     .buttons > a {
@@ -1430,13 +1453,16 @@ a {
         bottom: 5%;
         right: 55%;
     }
-    /*     .success {
+    .success {
         position: relative;
-        left: 32%;
+
         display: flex;
         max-height: 50px;
-        border: 2px solid black;
-    } */
+        border: 2px solid #f3420d;
+        color: white;
+        width: 20%;
+        margin: auto;
+    }
     /*     .success > button {
         display: flex;
         justify-content: center;
@@ -1459,9 +1485,10 @@ a {
     }
     .success {
         display: flex;
-        align-items: stretch;
+        margin-top: 10px;
+        align-items: center;
         flex-direction: column;
-        max-height: 5%;
+        max-height: 8%;
     }
     .success li {
         list-style: none;
