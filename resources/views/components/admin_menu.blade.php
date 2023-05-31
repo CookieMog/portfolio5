@@ -1,5 +1,6 @@
 <div class="NavMenuHeader">
-    <div id="AdminLogo"><a href="{{ route('gallery') }}"><img src="https://via.placeholder.com/200x100" alt="NavLogo"></a>
+    <div id="AdminLogo"><a href="{{ route('home') }}"><img src="{{ asset('storage/images/dashboardTop.jpg') }}"
+                alt="NavLogo"></a>
     </div>
 </div>
 <div class="NavMenu">

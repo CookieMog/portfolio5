@@ -1,5 +1,6 @@
 <div class="NavMenuHeader">
-    <div id="AdminLogo"><img src="https://via.placeholder.com/200x100" alt="NavLogo"></div>
+    <div id="AdminLogo"><a href="{{ route('home') }}"><img src="{{ asset('storage/images/homeLogo.jpg') }}"
+                alt="NavLogo"></a></div>
 </div>
 <div class="NavMenu">
     <ul class="Options">

@@ -21,8 +21,9 @@ class PageController extends Controller
 
         $resultat = USER::get();
         /* dd($resultat); */
+        $image = Image::latest()->first();
 
-        return view('home');
+        return view('home', compact('image'));
     }
 
     public function contact()

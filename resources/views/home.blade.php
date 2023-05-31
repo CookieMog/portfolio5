@@ -17,7 +17,9 @@
         <div class="column2">
             <div class="Introduction">
                 <div class="Photo">
-                    <img src="https://via.placeholder.com/320x400" alt="AlexisPortrait">
+                    @if (isset($image) && !empty($image))
+                        <img src="{{ asset('storage/images/' . $image->image) }} " alt="Portrait">
+                    @endif
                 </div>
                 <h1>
                     Bienvenue sur mon Portfolio
